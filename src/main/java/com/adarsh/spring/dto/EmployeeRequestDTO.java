@@ -1,33 +1,16 @@
 package com.adarsh.spring.dto;
 
+import lombok.Data;
+
+@Data
 public class EmployeeRequestDTO {
     private long id;
 
     private String name;
 
-    private String department;
+    private String code;
 
-    public long getId() {
-        return id;
-    }
+    private DepartmentRequestDTO department;
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 }

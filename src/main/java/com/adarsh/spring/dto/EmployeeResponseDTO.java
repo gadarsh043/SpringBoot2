@@ -1,33 +1,22 @@
 package com.adarsh.spring.dto;
 
+import com.adarsh.spring.entities.Department;
+import lombok.Data;
+
+@Data
 public class EmployeeResponseDTO {
     private long id;
 
     private String name;
+    private String code;
 
-    private String department;
+    private DepartmentResponseDTO department;
 
-    public long getId() {
-        return id;
-    }
+    public void setDepartmentFromEntity(Department departmentEntity){
+        DepartmentResponseDTO departmentResponseDTO = new DepartmentResponseDTO();
+        departmentResponseDTO.setId(departmentEntity.getId());
+        departmentResponseDTO.setName(departmentEntity.getName());
+        this.department = departmentResponseDTO;
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 }

@@ -1,13 +1,12 @@
 package com.adarsh.spring.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.ManyToAny;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -19,5 +18,9 @@ public class Employee {
     @GeneratedValue(generator = "employee_id_seq", strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    private String department;
+    private String code;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Department department;
 }

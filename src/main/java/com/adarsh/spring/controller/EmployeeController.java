@@ -6,6 +6,8 @@ import com.adarsh.spring.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -37,5 +39,10 @@ public class EmployeeController {
         return employeeService.deleteEmployeeById(id);
     }
 
+    //GET - /employee/department/{id}
+    @GetMapping("/department/{id}")
+    public List<EmployeeResponseDTO> getEmployeeListByDepartment(@PathVariable("id") Long departmentId) {
+        return employeeService.getEmployeeListByDepartment(departmentId);
+    }
 
 }
